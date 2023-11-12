@@ -15,11 +15,19 @@ class LoginController extends Controller
     }
 
     public function handleGoogleCallback()
-    {
-        $user = Socialite::driver('google')->user();
-
-        // Add your logic to handle the authenticated user, e.g., storing the user in the database.
-
+    {   
+        // try {
+            $user = Socialite::driver('google')->user();
+        //     $finduser = User::where('google_id', $user->id)->first();
+        //     if ( $finduser ) {
+        //         Auth::login($finduser);
+        //         return redirect()->intended('/');
+        //     } else {
+        //         return redirect()->intended('/');
+        //     }
+        // } catch (Exception $e) {
+        //     dd($e->getMessage());
+        // }
         return redirect('/'); // Redirect to the desired page after authentication.
     }
 }
