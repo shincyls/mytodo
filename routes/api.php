@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::get('/api/v1/auth/google', 'Auth\LoginController@redirectToGoogle')->name('login.google-redirect');
-Route::get('/api/v1/auth/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('login.google-callback');
-
-Route::get('/api/v1/todo', 'TodoItemController@all')->name('todo.all');
-Route::post('/api/v1/todo', 'TodoItemController@add')->name('todo.add');
-Route::put('/api/v1/todo/{id}/complete', 'TodoItemController@complete')->name('todo.complete');
-Route::delete('/api/v1/todo/{id}', 'TodoItemController@delete')->name('todo.delete');
+Route::resource('todos', TodoController::class);
+// Index route to list all TODO items
+// Route::get('/api/todos', 'TodoController@index')->name('todos.index');
+// // Create route to display a form for creating a new TODO item
+// Route::get('/todos/create', 'TodoController@create')->name('todos.create');
+// // Store route to create a new TODO item
+// Route::post('/todos', 'TodoController@store')->name('todos.store');
+// // Show route to display a specific TODO item
+// Route::get('/todos/{todo}', 'TodoController@show')->name('todos.show');
+// // Edit route to display a form for editing a specific TODO item
+// Route::get('/todos/{todo}/edit', 'TodoController@edit')->name('todos.edit');
+// // Update route to update a specific TODO item
+// Route::put('/todos/{todo}', 'TodoController@update')->name('todos.update');
+// Route::patch('/todos/{todo}', 'TodoController@update'); // Optional for PATCH requests
+// // Destroy route to delete a specific TODO item
+// Route::delete('/todos/{todo}', 'TodoController@destroy')->name('todos.destroy');
