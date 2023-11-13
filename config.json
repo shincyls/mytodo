@@ -1,0 +1,16 @@
+{
+    "web": {
+      "client_id": "889016590713-po7llfa82h8skd0t96p1ugqp8u6qn0k9.apps.googleusercontent.com",
+      "project_id": "mytodo-404915",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret": "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",
+      "redirect_uris": [
+        "https://127.0.0.1:8000/api/google/login"
+      ],
+      "javascript_origins": [
+        "https://127.0.0.1:8000"
+      ]
+    }
+  }

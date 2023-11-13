@@ -14,7 +14,6 @@ class TodoController extends Controller
         return response()->json($todos);
     }
 
-    // Create a new TODO item via API
     public function create(Request $request)
     {
         $validatedData = $request->validate([
@@ -36,7 +35,10 @@ class TodoController extends Controller
     {
         $todo = Todo::find($id);
         if (!$todo) {
-            return response()->json(['message' => 'Todo '.$id.' not found'], 404);
+            return response()->json([
+                'message' => 'Todo '.$id.' not found',
+                'status' => 'error'
+            ], 404);
         } else {
             return response()->json($todo);
         }
@@ -46,33 +48,48 @@ class TodoController extends Controller
     {
         $todo = Todo::find($id);
         if (!$todo) {
-            return response()->json(['message' => 'Todo '.$id.' not found'], 404);
+            return response()->json([
+                'message' => 'Todo '.$id.' not found',
+                'status' => 'error'
+            ], 404);
         } else {
             $todo->update($request->all());
             return response()->json($todo);
         }
     }
 
-    public function edit(Request $request, $id)
+    public function complete(Request $request, $id)
     {
         $todo = Todo::find($id);
         if (!$todo) {
-            return response()->json(['message' => 'Todo '.$id.' not found'], 404);
+            return response()->json([
+                'message' => 'Todo '.$id.' not found',
+                'status' => 'error'
+            ], 404);
         } else {
             $todo->is_completed = true;
             $todo->save();
-            return response()->json(['message' => 'Todo '.$id.' is completed'], 200);
+            return response()->json([
+                'message' => 'Todo '.$id.' completed',
+                'status' => 'ok'
+            ], 200);
         }
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $todo = Todo::find($id);
         if (!$todo) {
-            return response()->json(['message' => 'Todo '.$id.' not found'], 404);
+            return response()->json([
+                'message' => 'Todo '.$id.' not found',
+                'status' => 'error'
+            ], 404);
         } else {
             $todo->delete();
-            return response()->json(['message' => 'Todo '.$id.' deleted'], 200);
+            return response()->json([
+                'message' => 'Todo '.$id.' deleted',
+                'status' => 'ok'
+            ], 200);
         }
     }
 }
