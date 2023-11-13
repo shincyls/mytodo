@@ -58,7 +58,7 @@ class TodoController extends Controller
         }
     }
 
-    public function complete(Request $request, $id)
+    public function done(Request $request, $id)
     {
         $todo = Todo::find($id);
         if (!$todo) {
@@ -70,7 +70,7 @@ class TodoController extends Controller
             $todo->is_completed = true;
             $todo->save();
             return response()->json([
-                'message' => 'Todo '.$id.' completed',
+                'message' => 'Todo '.$id.' is done!',
                 'status' => 'ok'
             ], 200);
         }
