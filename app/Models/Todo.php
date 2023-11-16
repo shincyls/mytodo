@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Todo extends Model
 {
-    protected $fillable = ['title','description','due_date','is_completed','created_on','updated_on'];
+    protected $fillable = ['title','description','due_date','created_by'];
     public $timestamps = false;
 
     use HasFactory;

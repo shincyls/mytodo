@@ -31,17 +31,13 @@ class LoginController extends Controller
             $newUser->name = $user->name;
             $newUser->email = $user->email;
             $newUser->google_id = $user->id;
-            $newUser->password = "123456";
+            $newUser->password = "12345678"; // Not null just for placeholder
             $newUser->save();
             $new = true;
-
-            $token = $getUser->createToken('Token')->accessToken;
-            // Auth::login($getUser);
-        } else {
-            // Auth::login($getUser);
-            $token = $getUser->createToken('Token')->accessToken;
-        }
+        } 
+        $token = $getUser->createToken('Token')->accessToken;
         
+        // Return token allowed to copy
         return response()->json([
             'id'=> $id,
             'name'=> $name,
@@ -49,6 +45,7 @@ class LoginController extends Controller
             'new'=> $new,
             'access_token' => $accessToken
         ]);
+
     }
 
     public function redirectToGoogle()
@@ -60,9 +57,9 @@ class LoginController extends Controller
     {   
         try {
             $user = Socialite::driver('google')->user();
-            $finduser = User::where('google_id', $user->id)->first();
-            if ( $finduser ) {
-                Auth::login($finduser);
+            $getUser = User::where('google_id', $user->id)->first();
+            if ( $getUser ) {
+                Auth::login($getUser);
                 return redirect()->intended('/');
             } else {
                 return redirect()->intended('/');
