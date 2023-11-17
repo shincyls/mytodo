@@ -4,19 +4,23 @@
 
 <h5>Github</h5>
 
+Using PHP Composer 
 1) https://github.com/shincyls/mytodo
+2) use cmd to run: php laravel serve
 
 <hr>
 
 <h5>Docker</h5>
 
+Using Docker to Run
 1) docker pull shincyls/mytodo:v1.0.0
-
 2) docker compose up
 
 <hr>
 
 <h5>Instruction</h5>
+
+Once the App Is Up
 
 1) Browse "http://127.0.0.1/api/login/google" in any Internet Browser to Sign-Up as app user
 
@@ -25,19 +29,19 @@ Copy the value of <access_token>, this value will be the value of {YOUR_AUTH_TOK
 
 3) Once laravel server is up. Use command as below in windows' cmd/powershell OR linux's terminal to perform CRUD actions as belows:
 
-i) To List All Todo Items
+a) To List All Todo Items
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos
 
 Example: 
 
 
-ii) Select 1 Todo Item by Id
+b) Select 1 Todo Item by Id
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/{id}
 
 Example: 
 
    
-iii) To Add a Todo Item
+c) To Add a Todo Item
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/create -X POST 
 -d 'title={TASK_TITLE}&description={TASK_DESCRIPTION}&due_date={TASK_DUE_DATE}'
 
@@ -48,13 +52,13 @@ curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/create 
 Example: 
 
 
-iv) To Mark a Todo Item as Completed
+d) To Mark a Todo Item as Completed
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/{id}/done -X PUT
 
 {id}? id of todo item, you can view it with command (i)
 Example: 
 
-v) To Remove a Todo Item
+e) To Remove a Todo Item
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/{id} -X DELETE
 
 {id}? id of todo item, you can view it with command (i)
