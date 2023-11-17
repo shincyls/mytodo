@@ -26,9 +26,10 @@ class AuthenticateJson
             return response()->json([
                 'error' => true,
                 'message' => 'Unauthorized No Token'
-            ], 401);
+            ], 201);
         } else {
 
+            // Reverify From Google Oauth
             $curl = curl_init();
             curl_setopt_array($curl, array(
                 CURLOPT_URL => "https://oauth2.googleapis.com/tokeninfo?access_token=".$token,
@@ -49,7 +50,7 @@ class AuthenticateJson
                 return response()->json([
                     'error' => true,
                     'message' => 'Unauthorized Invalid Token'
-                ], 401);
+                ], 201);
             }
 
         }

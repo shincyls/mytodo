@@ -24,9 +24,14 @@ class TodoController extends Controller
         ]);
         // $validatedData->created_by = $request->input('email'); 
         $todo = Todo::create($validatedData);
-        return response()->json([
-            'data' => $todo
-        ], 201);
+        if (!$todo) {
+            return response()->json([
+                'message' => 'Todo '.$id.' not created',
+                'status' => 'error'
+            ], 404);
+        } else {
+            return response()->json($todo, 200);   
+        }
     }
 
     // public function store(Request $request)

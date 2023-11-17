@@ -1,5 +1,5 @@
 # Use an official PHP runtime as a parent image
-FROM php:7.4
+FROM php:8.2-fpm
 
 # Set the working directory to /var/www
 WORKDIR /var/www
@@ -11,13 +11,13 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 COPY . /var/www
 
 # Install dependencies
-RUN apt-get update \
+RUN apt-get update && apt-get install -y \
     && apt-get install -y libzip-dev zip unzip \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer self-update
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer 
+    # && composer self-update --ignore-platform-reqs
 
 # Install Laravel dependencies
-RUN composer install --optimize-autoloader --no-dev
+# RUN composer install --optimize-autoloader --no-dev
 # RUN composer install --no-dev
 # RUN composer dump-autoload --optimize
 
