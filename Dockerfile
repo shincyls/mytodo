@@ -1,19 +1,28 @@
-FROM php:8.2-fpm-alpine
+# Use an official PHP runtime as a parent image
+FROM php:7.4
 
-WORKDIR /var/www/app
+# Set the working directory to /var/www
+WORKDIR /var/www
 
-RUN apk update && apk add \
-    curl \
-    libpng-dev \
-    libxml2-dev \
-    zip \
-    unzip
+# Allow Composer to run as superuser
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN docker-php-ext-install pdo pdo_mysql \
-    && apk --no-cache add nodejs npm
+# Copy the current directory contents into the container at /var/www
+COPY . /var/www
 
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+# Install dependencies
+RUN apt-get update \
+    && apt-get install -y libzip-dev zip unzip \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer self-update
 
-USER root
+# Install Laravel dependencies
+RUN composer install --optimize-autoloader --no-dev
+# RUN composer install --no-dev
+# RUN composer dump-autoload --optimize
 
-RUN chmod 777 -R /var/www/app
+# Expose port 8000 (default for php artisan serve)
+EXPOSE 8000
+
+# Start the Laravel application using php artisan serve
+CMD ["php", "artisan", "serve", "--host=127.0.0.1", "--port=8000"]
