@@ -37,8 +37,8 @@ COPY .env /var/www/html/
 
 # Set the proper permissions
 RUN chown www-data:www-data /var/www/html/.env
-RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/database /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/database /var/www/html/bootstrap/cache
 
 # Generate the application key
 RUN php artisan key:generate
