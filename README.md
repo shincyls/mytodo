@@ -13,7 +13,7 @@ Using PHP Composer
 <h5>Docker</h5>
 
 Using Docker to Run
-1) docker pull shincyls/mytodo:v1.0.0
+1) docker pull shincyls/mytodo:test5
 2) docker compose up
 
 <hr>
@@ -22,7 +22,7 @@ Using Docker to Run
 
 Once the App Is Up
 
-1) Browse "http://127.0.0.1/api/login/google" in any Internet Browser to Sign-Up as app user
+1) Browse "http://localhost:8080/api/login/google" in any Internet Browser to Sign-Up as app user
 
 2) Once selected your gmail, click sign-in and wait for callback response.
 Copy the value of <access_token>, this value will be the value of {YOUR_AUTH_TOKEN}
@@ -30,19 +30,19 @@ Copy the value of <access_token>, this value will be the value of {YOUR_AUTH_TOK
 3) Once laravel server is up. Use command as below in windows' cmd/powershell OR linux's terminal to perform CRUD actions as belows:
 
 a) To List All Todo Items
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos
 
 Example: 
 
 
 b) Select 1 Todo Item by Id
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/{id}
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id}
 
 Example: 
 
    
 c) To Add a Todo Item
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/create -X POST 
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/create -X POST 
 -d 'title={TASK_TITLE}&description={TASK_DESCRIPTION}&due_date={TASK_DUE_DATE}'
 
 {TASK_TITLE}? task title
@@ -53,13 +53,13 @@ Example:
 
 
 d) To Mark a Todo Item as Completed
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/{id}/done -X PUT
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id}/done -X PUT
 
 {id}? id of todo item, you can view it with command (i)
 Example: 
 
 e) To Remove a Todo Item
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://127.0.0.1/todos/{id} -X DELETE
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id} -X DELETE
 
 {id}? id of todo item, you can view it with command (i)
 Example: 
