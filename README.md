@@ -16,13 +16,13 @@ Using Docker to Run
 1) docker pull shincyls/mytodo:test5
 2) docker compose up
 OR
-1) run with docker desktop with host post 8080:80
+1) run with docker desktop with host port 8080:80
 
 <hr>
 
 <h5>INSTRUCTION</h5>
 
-<ol>
+<ul>
 <li>
 1) Browse "http://localhost:8080/api/login/google" in any Internet Browser to Sign-Up as app user
 </li>
@@ -58,6 +58,5 @@ curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{i
 {id}? id of todo item, you can view it with command (i) (Refer to List All Todo Items)
 
 </li>
-<li>
-</ol>
+</ul>
 
