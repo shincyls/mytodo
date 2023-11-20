@@ -34,31 +34,37 @@ Copy the value of "access_token", copy this value as for {YOUR_AUTH_TOKEN}
 <li>
     
 3) Open CMD
-   
-<u>a) To List All Todo Items</u><br>
+<ol>   
+    
+<li> To List All Todo Items<br>
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos<br>
-
-<u>b) Select single Todo Item by Id</u><br>
+</li>
+    
+<li>
+<u> To Select a Todo Item by Id<br>
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id}<br>
-
-<u>c) To Add a Todo Item</u><br>
+</li>
+    
+<li> To Add a Todo Item<br>
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/create -X POST 
 -d "title={TASK_TITLE}&description={TASK_DESCRIPTION}&due_date={TASK_DUE_DATE}"<br>
-
 {TASK_TITLE}? task title<br>
 {TASK_DESCRIPTION}? task description<br>
 {TASK_DUE_DATE}? date format in yyyy-mm-dd<br>
+</li>
 
-<u>d) To Mark a Todo Item as Completed<br>
+<li> To Mark a Todo Item as Completed<br>
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id}/done -X PUT<br>
 
 {id}? id of todo item, you can view it with command (i) (Refer to List All Todo Items)<br>
+</li>
 
-<u>e) To Remove a Todo Item</u><br>
+<li> To Remove a Todo Item<br>
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id} -X DELETE<br>
-
 {id}? id of todo item, you can view it with command (i) (Refer to List All Todo Items)<br>
+</li>
 
+</ol>
 </li>
 </ul>
 
