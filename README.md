@@ -1,4 +1,4 @@
-<h2>This Is a Simple Todo List Project</h2>
+<h2>Simple Todo List Project With Laravel 10/php8.2-fpm/apache/sqlite</h2>
 
 <hr>
 
