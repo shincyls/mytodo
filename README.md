@@ -25,14 +25,14 @@ OR
 
 <ol>
 <li>
-1) Browse "http://localhost:8080/api/login/google" in any Internet Browser to Sign-Up as app user
+Browse "http://localhost:8080/api/login/google" in any Internet Browser to Sign-Up as app user
 </li>
 <li>
-2) Once selected your gmail, click sign-in and wait for callback response.
+Once selected your gmail, click sign-in and wait for callback response.
 Copy the value of "access_token", copy this value as for {YOUR_AUTH_TOKEN}
 </li>
 <li>
-3) Open CMD
+Open Windows CMD / Linux Terminal
     
 <ol>   
     
@@ -48,6 +48,7 @@ curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{i
 <li> To Add a Todo Item<br>
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/create -X POST 
 -d "title={TASK_TITLE}&description={TASK_DESCRIPTION}&due_date={TASK_DUE_DATE}"<br>
+    
 {TASK_TITLE}? task title<br>
 {TASK_DESCRIPTION}? task description<br>
 {TASK_DUE_DATE}? date format in yyyy-mm-dd<br>
@@ -61,6 +62,7 @@ curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{i
 
 <li> To Remove a Todo Item<br>
 curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id} -X DELETE<br>
+    
 {id}? id of todo item, you can view it with command (i) (Refer to List All Todo Items)<br>
 </li>
 
