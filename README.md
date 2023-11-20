@@ -37,16 +37,16 @@ Open Windows CMD / Linux Terminal
 <ol>   
     
 <li> To List All Todo Items<br>
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos<br>
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/api/todos<br>
 </li>
     
 <li>
 <u> To Select a Todo Item by Id<br>
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id}<br>
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/api/todos/{id}<br>
 </li>
     
 <li> To Add a Todo Item<br>
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/create -X POST 
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/api/todos/create -X POST 
 -d "title={TASK_TITLE}&description={TASK_DESCRIPTION}&due_date={TASK_DUE_DATE}"<br>
     
 {TASK_TITLE}? task title<br>
@@ -55,13 +55,13 @@ curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/cr
 </li>
 
 <li> To Mark a Todo Item as Completed<br>
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id}/done -X PUT<br>
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/api/todos/{id}/done -X PUT<br>
 
 {id}? id of todo item, you can view it with command (i) (Refer to List All Todo Items)<br>
 </li>
 
 <li> To Remove a Todo Item<br>
-curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/todos/{id} -X DELETE<br>
+curl -H "Authorization: Bearer {YOUR_AUTH_TOKEN}" http://localhost:8080/api/todos/{id} -X DELETE<br>
     
 {id}? id of todo item, you can view it with command (i) (Refer to List All Todo Items)<br>
 </li>
