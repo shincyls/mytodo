@@ -23,7 +23,7 @@ OR
 
 <h5>INSTRUCTION</h5>
 
-<ul>
+<ol>
 <li>
 1) Browse "http://localhost:8080/api/login/google" in any Internet Browser to Sign-Up as app user
 </li>
@@ -32,8 +32,8 @@ OR
 Copy the value of "access_token", copy this value as for {YOUR_AUTH_TOKEN}
 </li>
 <li>
-    
 3) Open CMD
+    
 <ol>   
     
 <li> To List All Todo Items<br>
